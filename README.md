@@ -5,6 +5,94 @@ This is a temporary documentation for Plugin SDK. Actual documentation is work i
 Base your Onyx Nitro UI themes and mods on [nitro-ui](https://github.com/Bitsaur/nitro-ui)
 
 
+## nitro.json
+
+Put `nitro.json` in the same folder as executable (on Linux and Windows, on macOS it has to go in Application Support/Onyx) to configure how Nitro behaves. Available flags for `nitro.json`:
+
+- `vsync`:bool &rarr; turn on/off VSync (default: `true`)
+- `profilesPath`:string &rarr; location to where the profiles are located (default: `"profiles"`)
+- `pluginsPath`:string &rarr; location to where the plugins are installed (default: `"plugins"`)
+- `pythonPath`:string &rarr; location to the Python 3.15.0. standard library (default: `"python"`)
+- `workspaceStoragePath`:string &rarr; location to workspace cache (default: `"workspaces"`)
+- `recents`:array &rarr; list of files and directories recently opened
+- `bookmarks`:array &rarr; list of bookmarked files and directories
+
+## Profiles
+
+You can define new profiles by creating a directory in the `profiles` directory. The name of the directory is the name of the profile. `Default` is a profile that Nitro loads on startup. You can specify which profile to use by launching nitro with `--profile [name]` argument.
+
+### settings.json
+
+The settings in `settings.json` can be defined in dynamic way. Each "." can be represented as JSON object or you can inline full or portion of the setting key. Example:
+```json
+{
+  "Application.Theme": "Nitro Dark",
+}
+```
+is same as:
+```json
+{
+  "Application": {
+    "Theme": "Nitro Dark"
+  }
+}
+```
+### shortcuts.json
+
+You can customize your shortcuts by providing a shortcuts.json file in the profile directory (currently there is no UI for managing shortcuts).
+Like settings, each "." in definition of shortcut key can be represented as a JSON object.
+
+List of available shortcuts and their default values:
+```json
+{
+  "TextEditor.Redo": "Ctrl+Y",
+  "TextEditor.Undo": "Ctrl+Z",
+  "TextEditor.PageUp": "PageUp",
+  "TextEditor.SelectPageUp": "Shift+PageUp",
+  "TextEditor.PageTop": "Ctrl+PageUp",
+  "TextEditor.SelectPageTop": "Ctrl+Shift+PageUp",
+  "TextEditor.PageDown": "PageDown",
+  "TextEditor.SelectPageDown": "Shift+PageDown",
+  "TextEditor.PageBottom": "Ctrl+PageDown",
+  "TextEditor.SelectPageBottom": "Ctrl+Shift+PageDown",
+  "TextEditor.LineEnd": "End",
+  "TextEditor.SelectLineEnd": "Shift+End",
+  "TextEditor.TextEnd": "Ctrl+End",
+  "TextEditor.SelectTextEnd": "Ctrl+Shift+End",
+  "TextEditor.LineBegin": "Home",
+  "TextEditor.SelectLineBegin": "Shift+Home",
+  "TextEditor.TextBegin": "Ctrl+Home",
+  "TextEditor.SelectTextBegin": "Ctrl+Shift+Home",
+  "TextEditor.EnsureCaretVisibility": "Ctrl+M",
+  "TextEditor.ToggleSearch": "Ctrl+F",
+  "TextEditor.Autocomplete": "Ctrl+Space",
+  "TextEditor.SignatureHelp": "Ctrl+Shift+Space",
+  "TextEditor.MoveLineContentUp": "Ctrl+Shift+Up",
+  "TextEditor.MoveLineContentDown": "Ctrl+Shift+Down",
+  "TextEditor.ScrollLineUp": "Ctrl+Up",
+  "TextEditor.ScrollLineDown": "Ctrl+Down",
+  "TextEditor.GoToPosition": "Ctrl+G",
+  "TextEditor.GoToDefinition": "Ctrl+B",
+  "TextEditor.FormatDocument": "Ctrl+Shift+Alt+L",
+  "TextEditor.IncreaseFontSize": "Ctrl+OemPlus",
+  "TextEditor.DecreaseFontSize": "Ctrl+OemMinus",
+  "TextEditor.FoldLevel1": [ "Ctrl+K", "Ctrl+1" ],
+  "TextEditor.FoldLevel2": [ "Ctrl+K", "Ctrl+2" ],
+  "TextEditor.FoldLevel3": [ "Ctrl+K", "Ctrl+3" ],
+  "TextEditor.FoldLevel4": [ "Ctrl+K", "Ctrl+4" ],
+  "TextEditor.FoldLevel5": [ "Ctrl+K", "Ctrl+5" ],
+  "TextEditor.ToggleVimMode": "Ctrl+Alt+V",
+  "Workspace.OpenSettings": "Ctrl+OemComma",
+  "Workspace.OpenWelcomePage": "",
+  "Workspace.OpenTerminalPage": "Ctrl+Shift+OemTilde",
+  "Workspace.CloseDocument": "Ctrl+W",
+  "Workspace.OpenFile": "Ctrl+O", 
+  "Workspace.NewEmptyFile": "Ctrl+N",
+  "Workspace.SaveDocument": "Ctrl+S",
+  "Workspace.SaveAllDocuments": "Ctrl+Shift+S"
+}
+```
+
 
 ## Plugin's config.json
 
