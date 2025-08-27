@@ -142,7 +142,7 @@ You can use following parameters:
 - `text_editor.read_only` &rarr; is text editor read only
 
 
-Python plugins can use 3rd party libraries:
+Python plugins can use 3rd party libraries (so long as they don't use .pyd files):
 ```bash
 python -m venv .venv
 ./.venv/Scripts/Activate.ps1
