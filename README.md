@@ -2,7 +2,7 @@
 
 This is a temporary documentation for Plugin SDK. Actual documentation is work in progress.
 
-Base your Onyx Nitro UI themes and mods on [nitro-ui](https://github.com/Bitsaur/nitro-ui)
+Base your Onyx Nitro UI themes and mods on [nitro-ui](https://github.com/Bitsaur/nitro-ui) and [onyx-ui](https://github.com/Bitsaur/onyx-ui).
 
 
 ## nitro.json
@@ -39,8 +39,13 @@ is same as:
 ```
 ### shortcuts.json
 
-You can customize your shortcuts by providing a shortcuts.json file in the profile directory (currently there is no UI for managing shortcuts).
+You can customize your shortcuts by providing a shortcuts.json file in the profile directory (currently there is no UI for managing shortcuts). 
 Like settings, each "." in definition of shortcut key can be represented as a JSON object.
+
+There are currently unfortunately some hardcoded shortcuts:
+- `SHIFT` + `SHIFT` &rarr; opens command palette
+- `CTRL` + hold `CTRL` + arrow keys up/down &rarr; creates multiple carets while editing text
+- `SHIFT` + `ALT` + mouse click &rarr; creates a new caret at given position
 
 List of available shortcuts and their default values:
 ```json
